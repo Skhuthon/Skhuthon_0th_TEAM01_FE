@@ -7,4 +7,7 @@ export const text = recipe({
     color: vars.color.black,
     fontWeight: vars.weight.medium,
   },
+  variants: {
+    color: {},
+  },
 });

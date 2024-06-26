@@ -1,5 +1,8 @@
+import './styles/theme.css';
+import { root } from './styles/app.css';
+
 function App() {
-  return <main></main>;
+  return <main className={root}>asd</main>;
 }
 
 export default App;
