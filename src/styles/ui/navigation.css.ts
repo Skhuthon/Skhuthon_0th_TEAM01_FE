@@ -24,6 +24,8 @@ export const navigationItem = style({
   display: 'flex',
   color: vars.color.black_100,
   flexDirection: 'column',
+  gap: '5px',
+  padding: vars.spacing.sm,
   justifyContent: 'center',
   alignItems: 'center',
 });
