@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { navigationBar, navigationItem } from '../styles/ui/navigation.css';
+import HomeSVG from '../assets/home.svg?react';
 
 const activeStyle = {
   borderTop: '1px solid #6F4E37',
@@ -14,7 +15,7 @@ export const NavigationBar = () => {
         exact={true}
         activeStyle={activeStyle}
       >
-        홈
+        <HomeSVG />홈
       </NavLink>
       <NavLink
         to="/detail"
