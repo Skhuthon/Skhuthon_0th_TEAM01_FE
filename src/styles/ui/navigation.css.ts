@@ -8,8 +8,22 @@ export const navigationBar = style({
   color: vars.color.black_100,
   fontSize: vars.size.font_xs,
   fontWeight: vars.weight.regular,
-  position: 'sticky',
-  top: 0,
-  left: 0,
+  backgroundColor: vars.color.white_200,
   display: 'flex',
+});
+
+export const navigationActive = style({
+  backgroundColor: vars.color.brown_300,
+  borderTop: `1px solid ${vars.color.black_300}`,
+});
+
+export const navigationItem = style({
+  width: '103px',
+  height: '60px',
+  textDecoration: 'none',
+  display: 'flex',
+  color: vars.color.black_100,
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
 });

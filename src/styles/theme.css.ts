@@ -12,7 +12,7 @@ export const vars = createGlobalTheme(':root', {
     brown_50: '#cdb3a1',
     brown_100: 'rgba(100,244,227,0.5)',
     brown_200: 'rgba(100, 244, 227, 0.7)',
-    brown_300: '#64f4e37',
+    brown_300: '#6f4e37',
     white_100: '#f1f1f1',
     white_200: '#ffffff',
   },

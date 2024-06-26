@@ -4,7 +4,7 @@ import { vars } from './theme.css';
 export const root = style({
   minWidth: '375px',
   maxWidth: '375px',
-  minHeight: '875px',
+  minHeight: '97vh',
   height: 'auto',
   margin: '0 auto',
   display: 'flex',
