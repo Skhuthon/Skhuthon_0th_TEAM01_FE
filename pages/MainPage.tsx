@@ -1,4 +1,9 @@
-import { mainPage, header, p } from '../src/styles/ui/mainPage.css';
+import {
+  mainPage,
+  header,
+  p,
+  LoginContainer,
+} from '../src/styles/ui/mainPage.css';
 
 import { Card } from '../src/ui/Card';
 import Logo from '../src/assets/logo.svg?react';
@@ -32,6 +37,16 @@ export const MainPage = () => {
           marginTop: '15px',
         }}
       />
+
+      <div className={LoginContainer}>
+        <NaverLogin
+          width={320}
+          height={40}
+          style={{
+            borderRadius: '15px',
+          }}
+        />
+      </div>
     </div>
   );
 };

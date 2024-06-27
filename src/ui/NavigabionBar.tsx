@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { navigationBar, navigationItem } from '../styles/ui/navigation.css';
 import HomeSVG from '../assets/home.svg?react';
 import ProductSVG from '../assets/product.svg?react';
@@ -9,23 +9,31 @@ const activeStyle = {
   color: '#6F4E37',
 };
 
+const activeSVGStyle = {
+  fill: '#6F4E37',
+  stroke: '#6F4E37',
+};
+
 export const NavigationBar = () => {
+  const location = useLocation();
+  const path = location.pathname;
+
   return (
     <nav className={navigationBar}>
       <NavLink
         className={navigationItem}
+        exact
         to="/"
-        exact={true}
         activeStyle={activeStyle}
       >
-        <HomeSVG />홈
+        <HomeSVG style={path === '/' ? activeSVGStyle : {}} />홈
       </NavLink>
       <NavLink
         to="/detail"
         className={navigationItem}
         activeStyle={activeStyle}
       >
-        <ProductSVG />
+        <ProductSVG style={path === '/detail' ? activeSVGStyle : {}} />
         상품
       </NavLink>
       <NavLink
@@ -33,7 +41,7 @@ export const NavigationBar = () => {
         to="/my_page"
         activeStyle={activeStyle}
       >
-        <MySVG />
+        <MySVG style={path === '/my_page' ? activeSVGStyle : {}} />
         마이
       </NavLink>
     </nav>
