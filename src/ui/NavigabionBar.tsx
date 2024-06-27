@@ -5,7 +5,7 @@ import ProductSVG from '../assets/product.svg?react';
 import MySVG from '../assets/my.svg?react';
 
 const activeStyle = {
-  borderTop: '1px solid #6F4E37',
+  borderTop: '5px solid #6F4E37',
   color: '#6F4E37',
 };
 
@@ -18,7 +18,7 @@ export const NavigationBar = () => {
         exact={true}
         activeStyle={activeStyle}
       >
-        <HomeSVG color="black" fill="black" />홈
+        <HomeSVG />홈
       </NavLink>
       <NavLink
         to="/detail"

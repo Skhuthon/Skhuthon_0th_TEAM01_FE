@@ -1,5 +1,6 @@
-import { NavigationBar } from './ui/NavigabionBar';
+import './styles/reset.css';
 import './styles/theme.css';
+import { NavigationBar } from './ui/NavigabionBar';
 import { root } from './styles/app.css';
 import { Switch, Route } from 'react-router-dom';
 
@@ -11,7 +12,7 @@ function App() {
   return (
     <main className={root}>
       <Switch>
-        <Route path="/" component={MainPage}></Route>
+        <Route path="/" exact component={MainPage}></Route>
         <Route path="/my_page" component={MyPage}></Route>
         <Route path="/detail" component={DetailPage}></Route>
         <Route path="/login" component={AuthPage}></Route>

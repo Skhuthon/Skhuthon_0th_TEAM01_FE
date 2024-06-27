@@ -14,7 +14,7 @@ export const navigationBar = style({
 
 export const navigationActive = style({
   backgroundColor: vars.color.brown_300,
-  borderTop: `1px solid ${vars.color.black_300}`,
+  borderTop: `1.5px solid ${vars.color.black_300}`,
 });
 
 export const navigationItem = style({
