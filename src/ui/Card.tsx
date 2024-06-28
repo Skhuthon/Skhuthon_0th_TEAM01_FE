@@ -1,23 +1,25 @@
-import { ComponentPropsWithoutRef } from 'react';
+import { ComponentPropsWithoutRef, ReactNode } from 'react';
 
-import CheckIcon from '../../src/assets/check.svg?react';
-import { card, CardText } from '../styles/ui/card.css';
+import { card, CardText, titleArea } from '../styles/ui/card.css';
 interface CardProps extends ComponentPropsWithoutRef<'div'> {
   title?: string;
-  subTitle?: string;
+  subTitle?: ReactNode;
+  icon?: ReactNode;
 }
 
-export const Card = ({ title, subTitle, ...rest }: CardProps) => {
+export const Card = ({ title, icon, subTitle, ...rest }: CardProps) => {
   return (
-    <div className={card} {...rest}>
+    <div {...rest} className={`${card} ${rest.className}`}>
       {title && (
         <div className={CardText}>
-          <CheckIcon />
-          <p>어쩌구저쩌구</p>
+          {icon}
+          <div className={titleArea}>
+            <p>{title}</p>
+            {subTitle && <div>{subTitle}</div>}
+          </div>
         </div>
       )}
-
-      {subTitle && <div>{subTitle}</div>}
+      {rest.children}
     </div>
   );
 };

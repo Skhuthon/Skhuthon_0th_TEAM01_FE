@@ -9,6 +9,7 @@ import {
 } from '../src/styles/ui/myPage.css';
 import { Avatar } from '../src/ui/Avatar';
 
+import { BookMarkFallback } from '../src/ui/bookmarkFallback';
 import Bookmark from '../src/assets/bookmark.svg?react';
 import Pen from '../src/assets/pen.svg?react';
 import Border from '../src/assets/border.svg?react';
@@ -55,12 +56,10 @@ export const MyPage = () => {
         }}
       >
         즐겨찾기
-        <Bookmark
-          style={{
-            marginLeft: '15px',
-          }}
-        />
+        <Bookmark />
       </div>
+
+      <BookMarkFallback />
     </div>
   );
 };

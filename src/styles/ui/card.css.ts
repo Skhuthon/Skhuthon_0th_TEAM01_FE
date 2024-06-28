@@ -2,8 +2,8 @@ import { style } from '@vanilla-extract/css';
 import { vars } from '../theme.css';
 
 export const card = style({
-  width: '300px',
-  height: '70px',
+  width: '290px',
+  minHeight: '70px',
   display: 'flex',
   flexDirection: 'column',
   gap: '25px',
@@ -21,4 +21,15 @@ export const CardText = style({
   flexDirection: 'row',
   color: vars.color.black_300,
   fontWeight: vars.weight.bold,
+});
+
+export const SubTitle = style({
+  marginLeft: vars.spacing.md,
+});
+
+export const titleArea = style({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  gap: vars.spacing.md,
 });

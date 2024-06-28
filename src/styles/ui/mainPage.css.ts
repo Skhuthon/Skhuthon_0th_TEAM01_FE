@@ -24,3 +24,15 @@ export const p = style({
 export const LoginContainer = style({
   marginTop: '25px',
 });
+
+export const main = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: vars.spacing.md,
+});
+
+export const subTitle = style({
+  color: vars.color.gray_200,
+  fontSize: vars.size.font_sm,
+  fontWeight: vars.weight.extraLight,
+});
