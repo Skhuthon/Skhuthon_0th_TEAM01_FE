@@ -1,7 +1,9 @@
+import { Input } from '../src/ui/Input';
 import { pageLayout } from '../src/styles/ui/pageLayout.css';
 export const DetailPage = () => {
   return (
     <div className={pageLayout}>
+      <Input onEnter={(val) => alert(val)} />
       상세 페이상세 페이상세 페이상세 페이상세 페이상세 페이상세 페이상세
       페이상세 페이상세 페이상세 페이상세 페이상세 페이상세 페이상세 페이상세
       페이상세 페이상세 페이상세 페이상세 페이상세 페이상세 페이상세 페이상세
