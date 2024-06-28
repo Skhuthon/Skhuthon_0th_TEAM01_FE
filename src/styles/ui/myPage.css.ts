@@ -25,3 +25,29 @@ export const userInfoLayout = style({
   fontSize: vars.size.font_sm,
   color: vars.color.gray_200,
 });
+
+export const changeInfoLayout = style({
+  width: '270px',
+  height: '50px',
+  display: 'flex',
+  justifyContent: 'space-around',
+  alignItems: 'center',
+  margin: `${vars.spacing.xxl} auto`,
+  backgroundColor: vars.color.gray_300,
+  color: vars.color.gray_200,
+  fontSize: vars.size.font_sm,
+  fontWeight: vars.weight.bold,
+});
+
+export const pen = style({
+  marginLeft: '15px',
+});
+
+export const bookmark = style({
+  margin: `${vars.spacing.xl} auto`,
+  color: '#6F4E37',
+  fontWeight: vars.weight.semiBold,
+  fontSize: vars.size.font_sm,
+  display: 'flex',
+  alignItems: 'center',
+});
