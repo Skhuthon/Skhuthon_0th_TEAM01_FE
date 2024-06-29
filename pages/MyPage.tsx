@@ -63,12 +63,12 @@ export const MyPage = () => {
 
       <div className={changeInfoLayout}>
         <span>
-          닉네임수정
+          {authContext?.auth.todayCaffeineIntakeAmount}를 먹었어요😽
           <Pen className={pen} />
         </span>
         <Border />
         <span>
-          키,몸무게 수정
+          {authContext?.auth.todayCaffeineIntakeAmount}의 카페인을 먹어보아요🙊
           <Pen className={pen} />
         </span>
       </div>
