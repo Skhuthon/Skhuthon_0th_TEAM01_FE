@@ -51,20 +51,18 @@ export const AuthPage = () => {
         <NaverLogin
           width={320}
           height={40}
-          onClick={async () => {
-            setTimeout(() => {
-              context?.setAuth({
-                name: 'asd',
-                profile: 'asdasd',
-                email: 'asdasd',
-                role: 'asdasd',
-                todayCaffeineIntakeAmount: 0,
-                canCaffeineIntakeAmount: 1,
-              });
+          onClick={() => {
+            context?.setAuth({
+              name: 'asd',
+              profile: 'asdasd',
+              email: 'asdasd',
+              role: 'asdasd',
+              todayCaffeineIntakeAmount: 0,
+              canCaffeineIntakeAmount: 1,
+            });
 
-              window.location.href =
-                'https://caffeinebalance.shop/oauth2/authorization/naver';
-            }, 3000);
+            window.location.href =
+              'https://caffeinebalance.shop/oauth2/authorization/naver';
           }}
           style={{
             borderRadius: '15px',
