@@ -13,9 +13,9 @@ import { Avatar } from '../src/ui/Avatar';
 import { menuList } from '../src/styles/ui/menuList.css';
 
 import { BookMarkFallback } from '../src/ui/bookmarkFallback';
-import Bookmark from '/bookmark.svg?react';
-import Pen from '/pen.svg?react';
-import Border from '/border.svg?react';
+import Bookmark from '/public/bookmark.svg?react';
+import Pen from '/public/pen.svg?react';
+import Border from '/public/border.svg?react';
 import Swal from 'sweetalert2';
 
 export const MyPage = () => {

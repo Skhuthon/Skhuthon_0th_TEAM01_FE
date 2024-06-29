@@ -1,8 +1,8 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import { navigationBar, navigationItem } from '../styles/ui/navigation.css';
-import HomeSVG from '/home.svg?react';
-import ProductSVG from '/product.svg?react';
-import MySVG from '/my.svg?react';
+import HomeSVG from '/public/home.svg?react';
+import ProductSVG from '/public/product.svg?react';
+import MySVG from '/public/my.svg?react';
 
 const activeStyle = {
   borderTop: '5px solid #6F4E37',
