@@ -111,6 +111,9 @@ export const MyPage = () => {
         style={{
           width: '90%',
           margin: '25px auto',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '15px',
         }}
       >
         소비내역
