@@ -7,7 +7,12 @@ import Bookmark from '../src/assets/bookmark.svg?react';
 import { mainLayout } from '../src/styles/ui/mainPage.css';
 import ProgressBar from '@ramonak/react-progress-bar';
 import Banner from '../src/assets/banner.svg?react';
+import { useEffect } from 'react';
+import { getMyPage } from '../src/service/mypage';
 export const MainPage = () => {
+  useEffect(() => {
+    getMyPage().then((res) => console.log(res));
+  }, []);
   return (
     <div>
       <Banner className="banner" />

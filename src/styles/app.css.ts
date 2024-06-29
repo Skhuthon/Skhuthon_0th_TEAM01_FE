@@ -10,7 +10,7 @@ export const root = style({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  border: '0.5px solid #999999',
+  border: '2px solid #999999',
   boxSizing: 'border-box',
   padding: 0,
   backgroundColor: vars.color.white_100,

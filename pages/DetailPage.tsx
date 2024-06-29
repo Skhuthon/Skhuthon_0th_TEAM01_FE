@@ -114,6 +114,9 @@ export const DetailPage = () => {
   };
 
   const onClickItem = () => {
+    if (!authContext) {
+      return;
+    }
     Swal.fire({
       title: '즐겨찾기에 추가하시겠습니까?',
       icon: 'warning',

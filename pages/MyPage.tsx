@@ -29,6 +29,8 @@ export const MyPage = () => {
     setBookmarks(storedBookmarks);
   }, []);
 
+  console.log(bookmarks);
+
   const onClickBookmark = (targetid: string) => {
     Swal.fire({
       title: '제거하시겠습니까?',

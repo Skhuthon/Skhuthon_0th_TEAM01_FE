@@ -1,3 +1,4 @@
+import './mainPage.css';
 import {
   mainPage,
   header,
@@ -10,14 +11,17 @@ import { Card } from '../src/ui/Card';
 import Logo from '../src/assets/logo.svg?react';
 import NaverLogin from '../src/assets/naverlogin.svg?react';
 import CheckIcon from '../src/assets/check.svg?react';
+
 export const AuthPage = () => {
   const context = useAuthContext();
 
   return (
     <div className={` ${mainPage}`}>
       <h2 className={header}>카페인 벨런스</h2>
-      <p className={p}>카페인 벨런스는 어쩌구</p>
+      <p className={p}>카페인 벨런스로 오늘의 카페인을 관리해보세요</p>
+
       <Logo
+        className="banner"
         style={{
           marginTop: '25px',
         }}
@@ -43,7 +47,6 @@ export const AuthPage = () => {
           marginTop: '15px',
         }}
       />
-
       <div className={LoginContainer}>
         <NaverLogin
           width={320}
@@ -58,7 +61,8 @@ export const AuthPage = () => {
               canCaffeineIntakeAmount: 1,
             });
 
-            window.location.href = 'http://localhost:5173/my_page';
+            window.location.href =
+              'https://caffeinebalance.shop/oauth2/authorization/naver';
           }}
           style={{
             borderRadius: '15px',
