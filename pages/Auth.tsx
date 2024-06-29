@@ -9,6 +9,7 @@ import {
 import { Card } from '../src/ui/Card';
 import Logo from '/public/logo.svg?react';
 import NaverLogin from '/public/naverlogin.svg?react';
+import GoogleLogin from '/public/구글.svg?react';
 import CheckIcon from '/public/check.svg?react';
 
 export const AuthPage = () => {
@@ -51,6 +52,18 @@ export const AuthPage = () => {
           onClick={() => {
             window.location.href =
               'https://caffeinebalance.shop/oauth2/authorization/naver';
+          }}
+          style={{
+            borderRadius: '15px',
+            cursor: 'pointer',
+          }}
+        />
+        <GoogleLogin
+          width={320}
+          height={40}
+          onClick={() => {
+            window.location.href =
+              'https://caffeinebalance.shop/oauth2/authorization/google';
           }}
           style={{
             borderRadius: '15px',
