@@ -1,0 +1,16 @@
+@keyframes moveUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.banner {
+  display: flex;
+  justify-content: center;
+  marin: 25px auto;
+  animation: moveUpDown 2s infinite;
+}

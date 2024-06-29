@@ -1,8 +1,21 @@
 import { Input } from '../src/ui/Input';
 import { pageLayout } from '../src/styles/ui/pageLayout.css';
-import { detailPageLayout, layout, p } from '../src/styles/ui/detail.css';
-import { getAllProduct } from '../src/service/detail';
+import {
+  detailPageLayout,
+  layout,
+  menuItem,
+  p,
+  칼로리,
+} from '../src/styles/ui/detail.css';
+import {
+  getAllMenu,
+  getAllProduct,
+  getCaffeine,
+  getMenuByQuery,
+} from '../src/service/detail';
 import { useEffect, useState } from 'react';
+import { MenuListFallback } from '../src/ui/menuListFallback';
+import type { product } from '../src/ui/menuListFallback';
 
 /*
 const list = [
@@ -35,18 +48,62 @@ const list = [
 
 export const DetailPage = () => {
   const [brands, setBrands] = useState<string[]>([]);
+  const [currentBrand, setCurrentBrand] = useState<string>('');
+  const [카페인, set카페인] = useState<number | null>(null);
+  const [menus, setMenus] = useState<string[]>([]);
+  const [currentMenu, setCurrentMenu] = useState<string>('');
+  const [query, setQuery] = useState('');
+  const [products, setProducts] = useState<null | product[]>(null);
   useEffect(() => {
-    getAllProduct().then(({ brand }) => setBrands(brand));
+    getAllProduct().then(({ brands }) => setBrands(brands));
   }, []);
+
+  useEffect(() => {
+    getAllMenu({ brand: currentBrand }).then((value) => {
+      setMenus(value.menu);
+    });
+  }, [currentBrand]);
+
+  useEffect(() => {
+    getCaffeine({ brand: currentBrand, menu: currentMenu }).then((value) => {
+      set카페인(value.caffeine);
+    });
+  }, [currentMenu]);
+
+  useEffect(() => {
+    if (query.length > 0) {
+      getMenuByQuery({
+        keyword: query,
+      }).then(({ products }) => {
+        setProducts(products);
+      });
+    }
+  }, [query]);
+
+  const onClickProduct = (brand: string, menu: string, caffeine: number) => {
+    setCurrentBrand(brand);
+    setCurrentMenu(menu);
+    set카페인(caffeine);
+    setProducts([]);
+    setQuery('');
+  };
   return (
     <div className={pageLayout}>
-      <Input onEnter={(val) => alert(val)} />
-
+      <Input onEnter={(val) => setQuery(val)} />
+      {products && (
+        <MenuListFallback
+          products={products ?? []}
+          onClickProduct={onClickProduct}
+        />
+      )}
       <div className={detailPageLayout}>
         <div className={layout}>
           {brands.map((brand) => (
             <div
               key={brand}
+              onClick={() => {
+                setCurrentBrand(brand);
+              }}
               style={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -55,12 +112,28 @@ export const DetailPage = () => {
                 gap: '5px',
               }}
             >
-              <div className={p}>{brand}</div>
+              <img src={`../src/assets/${brand}.svg`} alt={brand} />
+              <div
+                className={p}
+                style={{
+                  color: (currentBrand ?? 'gray') === brand ? 'black' : 'gray',
+                }}
+              >
+                {brand}
+              </div>
             </div>
           ))}
         </div>
-        <div className={layout}></div>
-        <div className={layout}></div>
+        <div className={layout}>
+          {menus.map((menu) => (
+            <p className={menuItem} onClick={() => setCurrentMenu(menu)}>
+              {menu}
+            </p>
+          ))}
+        </div>
+        <div className={layout}>
+          {카페인 && <p className={칼로리}>{카페인}mg</p>}
+        </div>
       </div>
     </div>
   );

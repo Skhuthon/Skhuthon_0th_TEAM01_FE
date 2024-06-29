@@ -28,4 +28,5 @@ export const navigationItem = style({
   padding: vars.spacing.sm,
   justifyContent: 'center',
   alignItems: 'center',
+  transition: 'color 0.5s ease, border-top 0.5s ease',
 });

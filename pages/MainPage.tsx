@@ -1,3 +1,4 @@
+import './mainPage.css';
 import { Card } from '../src/ui/Card';
 import Logo from '../src/assets/logo.svg?react';
 import { bookmark } from '../src/styles/ui/myPage.css';
@@ -5,9 +6,11 @@ import { main, subTitle } from '../src/styles/ui/mainPage.css';
 import Bookmark from '../src/assets/bookmark.svg?react';
 import { mainLayout } from '../src/styles/ui/mainPage.css';
 import ProgressBar from '@ramonak/react-progress-bar';
+import Banner from '../src/assets/banner.svg?react';
 export const MainPage = () => {
   return (
     <div>
+      <Banner className="banner" />
       <div
         className={bookmark}
         style={{
@@ -19,7 +22,7 @@ export const MainPage = () => {
             style={{
               display: 'flex',
               alignItems: 'center',
-              fontSize: '24px',
+              fontSize: '20px',
             }}
           >
             일일권장카페인섭취량
@@ -29,6 +32,7 @@ export const MainPage = () => {
       </div>
       <div className={mainLayout}>
         <ProgressBar
+          labelSize="12px"
           animateOnRender
           completed={60}
           width="100%"

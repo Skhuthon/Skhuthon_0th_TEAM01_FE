@@ -1,6 +1,7 @@
 import { axiosClient } from '../axiosClient';
 export const getAllProduct = async () => {
-  const response = await axiosClient.get<{ brand: string[] }>('/product');
+  const response = await axiosClient.get<{ brands: string[] }>('/product');
+
   return response.data;
 };
 
@@ -18,7 +19,7 @@ export const getMenuByQuery = async ({ keyword }: { keyword: string }) => {
       brand: string;
       menu: string;
       caffeine: number;
-    };
+    }[];
   }>(`/product/search?keyword=${keyword}`);
   return response.data;
 };
