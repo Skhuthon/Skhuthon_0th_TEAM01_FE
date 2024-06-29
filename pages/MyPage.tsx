@@ -116,11 +116,20 @@ export const MyPage = () => {
         소비내역
         <Bookmark />
         {records.map(({ menu, brand, 카페인 }) => (
-          <div>
+          <div
+            key={menu}
+            className={menuList}
+            style={{
+              width: '80%',
+              margin: '0 auto',
+            }}
+          >
             <div>
-              {brand},{menu}
+              <div>
+                {brand},{menu}
+              </div>
+              <div>{카페인}</div>
             </div>
-            <div>{카페인}</div>
           </div>
         ))}
       </div>
