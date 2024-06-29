@@ -163,7 +163,7 @@ export const DetailPage = () => {
                 gap: '5px',
               }}
             >
-              <img src={`/src/assets/${brand}.svg`} alt={brand} />
+              <img src={`/${brand}.svg`} alt={brand} />
               <div
                 className={p}
                 style={{
