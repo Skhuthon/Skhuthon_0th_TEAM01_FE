@@ -36,3 +36,12 @@ export const getCaffeine = async ({
   );
   return response.data;
 };
+
+export const mutateCaffeine = async ({ caffeine }: { caffeine: number }) => {
+  const response = await axiosClient.patch<{
+    todayCaffeineIntakeAmount: number;
+    canCaffeineIntakeAmount: number;
+  }>(`/product/update/caffeine?caffeine=${caffeine}`);
+
+  return response.data;
+};

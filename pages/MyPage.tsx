@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import {
   text_large,
   avatar,
@@ -7,33 +8,54 @@ import {
   avatarLayout,
   pen,
 } from '../src/styles/ui/myPage.css';
+import { useAuthContext } from '../src/authContext';
 import { Avatar } from '../src/ui/Avatar';
+import { menuList } from '../src/styles/ui/menuList.css';
 
 import { BookMarkFallback } from '../src/ui/bookmarkFallback';
 import Bookmark from '../src/assets/bookmark.svg?react';
 import Pen from '../src/assets/pen.svg?react';
 import Border from '../src/assets/border.svg?react';
+import Swal from 'sweetalert2';
+
 export const MyPage = () => {
+  const authContext = useAuthContext();
+  const [bookmarks, setBookmarks] = useState([]);
+
+  useEffect(() => {
+    const storedBookmarks = JSON.parse(
+      localStorage.getItem('bookmarks') ?? '[]'
+    );
+    setBookmarks(storedBookmarks);
+  }, []);
+
+  const onClickBookmark = (targetid: string) => {
+    Swal.fire({
+      title: '제거하시겠습니까?',
+      icon: 'warning',
+    }).then((res) => {
+      if (res.isConfirmed) {
+        const updatedBookmarks = bookmarks.filter(({ id }) => id !== targetid);
+        setBookmarks(updatedBookmarks);
+        localStorage.setItem('bookmarks', JSON.stringify(updatedBookmarks));
+      }
+    });
+  };
+
   return (
     <div>
       <div className={avatarLayout}>
         <Avatar
-          src="https://avatar.iran.liara.run/public/25"
+          src={`${'https://api.dicebear.com/8.x/adventurer-neutral/svg?seed=Abby'} ?? ${
+            authContext?.auth.profile
+          }`}
           className={avatar}
         />
         <div>
           <div>
-            <span className={text_large}>김효중</span>
-            <span
-              style={{
-                marginLeft: '100px',
-              }}
-              className={userInfoLayout}
-            >
-              로그아웃
-            </span>
+            <span className={text_large}>{authContext?.auth.name}</span>
           </div>
-          <p className={userInfoLayout}>200KM/20KG</p>
+          <p className={userInfoLayout}>{authContext?.auth.email}</p>
         </div>
       </div>
 
@@ -58,8 +80,24 @@ export const MyPage = () => {
         즐겨찾기
         <Bookmark />
       </div>
-
-      <BookMarkFallback />
+      {bookmarks.length > 0 ? (
+        bookmarks.map(({ bookmark, menu, id }) => (
+          <div
+            key={id}
+            onClick={() => onClickBookmark(id)}
+            className={menuList}
+            style={{
+              width: '80%',
+              margin: '0 auto',
+            }}
+          >
+            <div>{bookmark}</div>
+            <div>{menu}</div>
+          </div>
+        ))
+      ) : (
+        <BookMarkFallback />
+      )}
     </div>
   );
 };

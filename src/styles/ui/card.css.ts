@@ -6,6 +6,7 @@ export const card = style({
   minHeight: '70px',
   display: 'flex',
   flexDirection: 'column',
+  justifyContent: 'center',
   gap: '25px',
   marginTop: '10px',
   backgroundColor: vars.color.white_200,
