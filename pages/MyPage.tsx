@@ -21,12 +21,16 @@ import Swal from 'sweetalert2';
 export const MyPage = () => {
   const authContext = useAuthContext();
   const [bookmarks, setBookmarks] = useState([]);
+  const [records, setRecords] = useState([]);
 
   useEffect(() => {
     const storedBookmarks = JSON.parse(
       localStorage.getItem('bookmarks') ?? '[]'
     );
     setBookmarks(storedBookmarks);
+
+    const storedRecords = JSON.parse(localStorage.getItem('records') ?? '[]');
+    setRecords(storedRecords);
   }, []);
 
   const onClickBookmark = (targetid: string) => {
@@ -101,6 +105,25 @@ export const MyPage = () => {
       ) : (
         <BookMarkFallback />
       )}
+
+      <div
+        className={bookmark}
+        style={{
+          width: '90%',
+          margin: '25px auto',
+        }}
+      >
+        소비내역
+        <Bookmark />
+        {records.map(({ menu, brand, 카페인 }) => (
+          <div>
+            <div>
+              {brand},{menu}
+            </div>
+            <div>{카페인}</div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

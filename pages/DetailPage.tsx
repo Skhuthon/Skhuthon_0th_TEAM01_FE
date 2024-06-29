@@ -112,6 +112,21 @@ export const DetailPage = () => {
               todayCaffeineIntakeAmount: res.todayCaffeineIntakeAmount,
               canCaffeineIntakeAmount: res.canCaffeineIntakeAmount,
             });
+            const getRecords = JSON.parse(
+              localStorage.getItem('records') ?? '[]'
+            );
+            if (getRecords) {
+              const updatedRecords = [
+                ...getRecords,
+                {
+                  menu: currentMenu,
+                  brand: currentBrand,
+                  칼로리: 칼로리,
+                },
+              ];
+
+              localStorage.setItem('records', JSON.stringify(updatedRecords));
+            }
           });
         Swal.fire({
           title: '추가되었습니다!',
