@@ -17,7 +17,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { useEffect, useState } from 'react';
 import { MenuListFallback } from '../src/ui/menuListFallback';
 import type { product } from '../src/ui/menuListFallback';
-import Plus from '../src/assets/plus.svg?react';
+import Plus from '/plus.svg?react';
 
 import { useAuthContext } from '../src/authContext';
 import Swal from 'sweetalert2';

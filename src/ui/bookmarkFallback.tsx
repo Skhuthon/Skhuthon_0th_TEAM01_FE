@@ -1,4 +1,4 @@
-import Logo from '../assets/logo.svg?react';
+import Logo from '/logo.svg?react';
 import { userInfoLayout } from '../styles/ui/myPage.css';
 
 export const BookMarkFallback = () => {

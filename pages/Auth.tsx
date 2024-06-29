@@ -7,9 +7,9 @@ import {
 } from '../src/styles/ui/mainPage.css';
 
 import { Card } from '../src/ui/Card';
-import Logo from '../src/assets/logo.svg?react';
-import NaverLogin from '../src/assets/naverlogin.svg?react';
-import CheckIcon from '../src/assets/check.svg?react';
+import Logo from '/logo.svg?react';
+import NaverLogin from '/naverlogin.svg?react';
+import CheckIcon from '/check.svg?react';
 
 export const AuthPage = () => {
   return (

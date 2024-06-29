@@ -1,13 +1,13 @@
 import './mainPage.css';
 import { Card } from '../src/ui/Card';
-import Logo from '../src/assets/logo.svg?react';
+import Logo from '/logo.svg?react';
 import { bookmark } from '../src/styles/ui/myPage.css';
 import { useAuthContext } from '../src/authContext';
 import { main, subTitle } from '../src/styles/ui/mainPage.css';
-import Bookmark from '../src/assets/bookmark.svg?react';
+import Bookmark from '/bookmark.svg?react';
 import { mainLayout } from '../src/styles/ui/mainPage.css';
 import ProgressBar from '@ramonak/react-progress-bar';
-import Banner from '../src/assets/banner.svg?react';
+import Banner from '/banner.svg?react';
 import { useEffect } from 'react';
 import { getMyPage } from '../src/service/mypage';
 export const MainPage = () => {
