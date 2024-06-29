@@ -18,6 +18,7 @@ import { useEffect, useState } from 'react';
 import { MenuListFallback } from '../src/ui/menuListFallback';
 import type { product } from '../src/ui/menuListFallback';
 import Plus from '/public/plus.svg?react';
+import { mutateCaffeine } from '../src/service/detail';
 
 import { useAuthContext } from '../src/authContext';
 import Swal from 'sweetalert2';
@@ -104,6 +105,14 @@ export const DetailPage = () => {
       cancelButtonText: '아니오',
     }).then((result) => {
       if (result.isConfirmed) {
+        if (카페인)
+          mutateCaffeine({ caffeine: 카페인 }).then((res) => {
+            authContext?.setAuth({
+              ...authContext.auth,
+              todayCaffeineIntakeAmount: res.todayCaffeineIntakeAmount,
+              canCaffeineIntakeAmount: res.canCaffeineIntakeAmount,
+            });
+          });
         Swal.fire({
           title: '추가되었습니다!',
           text: '성공적으로 기록되었어요!.',
@@ -132,6 +141,7 @@ export const DetailPage = () => {
             brand: currentBrand,
             menu: currentMenu,
             id: uuidv4(),
+            카페인: 카페인,
           });
           localStorage.setItem('bookmarks', JSON.stringify(getBookMarks));
         }

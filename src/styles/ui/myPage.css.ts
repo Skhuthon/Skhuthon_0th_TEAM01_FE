@@ -27,7 +27,7 @@ export const userInfoLayout = style({
 });
 
 export const changeInfoLayout = style({
-  width: '270px',
+  width: '320px',
   height: '50px',
   display: 'flex',
   justifyContent: 'space-around',

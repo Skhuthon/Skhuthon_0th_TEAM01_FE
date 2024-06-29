@@ -29,8 +29,6 @@ export const MyPage = () => {
     setBookmarks(storedBookmarks);
   }, []);
 
-  console.log(bookmarks);
-
   const onClickBookmark = (targetid: string) => {
     Swal.fire({
       title: '제거하시겠습니까?',
@@ -83,7 +81,7 @@ export const MyPage = () => {
         <Bookmark />
       </div>
       {bookmarks.length > 0 ? (
-        bookmarks.map(({ bookmark, menu, id }) => (
+        bookmarks.map(({ bookmark, menu, id, 카페인 }) => (
           <div
             key={id}
             onClick={() => onClickBookmark(id)}
@@ -93,7 +91,9 @@ export const MyPage = () => {
               margin: '0 auto',
             }}
           >
-            <div>{bookmark}</div>
+            <div>
+              {bookmark},{카페인}mg
+            </div>
             <div>{menu}</div>
           </div>
         ))
