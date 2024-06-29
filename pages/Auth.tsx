@@ -16,7 +16,7 @@ export const AuthPage = () => {
   const context = useAuthContext();
 
   return (
-    <div className={` ${mainPage}`}>
+    <div className={mainPage}>
       <h2 className={header}>카페인 벨런스</h2>
       <p className={p}>카페인 벨런스로 오늘의 카페인을 관리해보세요</p>
 
@@ -51,18 +51,20 @@ export const AuthPage = () => {
         <NaverLogin
           width={320}
           height={40}
-          onClick={() => {
-            context?.setAuth({
-              name: 'asd',
-              profile: 'asdasd',
-              email: 'asdasd',
-              role: 'asdasd',
-              todayCaffeineIntakeAmount: 0,
-              canCaffeineIntakeAmount: 1,
-            });
+          onClick={async () => {
+            setTimeout(() => {
+              context?.setAuth({
+                name: 'asd',
+                profile: 'asdasd',
+                email: 'asdasd',
+                role: 'asdasd',
+                todayCaffeineIntakeAmount: 0,
+                canCaffeineIntakeAmount: 1,
+              });
 
-            window.location.href =
-              'https://caffeinebalance.shop/oauth2/authorization/naver';
+              window.location.href =
+                'https://caffeinebalance.shop/oauth2/authorization/naver';
+            }, 3000);
           }}
           style={{
             borderRadius: '15px',
