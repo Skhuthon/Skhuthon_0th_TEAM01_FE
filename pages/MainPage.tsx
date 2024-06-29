@@ -2,6 +2,7 @@ import './mainPage.css';
 import { Card } from '../src/ui/Card';
 import Logo from '../src/assets/logo.svg?react';
 import { bookmark } from '../src/styles/ui/myPage.css';
+import { useAuthContext } from '../src/authContext';
 import { main, subTitle } from '../src/styles/ui/mainPage.css';
 import Bookmark from '../src/assets/bookmark.svg?react';
 import { mainLayout } from '../src/styles/ui/mainPage.css';
@@ -10,8 +11,18 @@ import Banner from '../src/assets/banner.svg?react';
 import { useEffect } from 'react';
 import { getMyPage } from '../src/service/mypage';
 export const MainPage = () => {
+  const context = useAuthContext();
   useEffect(() => {
-    getMyPage().then((res) => console.log(res));
+    getMyPage().then((res) =>
+      context?.setAuth({
+        name: res.name,
+        profile: res.profile,
+        role: res.role,
+        canCaffeineIntakeAmount: 0,
+        todayCaffeineIntakeAmount: 0,
+        email: res.email,
+      })
+    );
   }, []);
   return (
     <div>
