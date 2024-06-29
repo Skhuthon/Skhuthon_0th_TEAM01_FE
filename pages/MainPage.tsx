@@ -8,9 +8,17 @@ import Bookmark from '/public/bookmark.svg?react';
 import { mainLayout } from '../src/styles/ui/mainPage.css';
 import ProgressBar from '@ramonak/react-progress-bar';
 import Banner from '/public/banner.svg?react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getMyPage } from '../src/service/mypage';
+import { getRandomCoffee } from '../src/service/detail';
+
+interface mainProps {
+  brand: string;
+  menu: string;
+  caffeine: number;
+}
 export const MainPage = () => {
+  const [reommend, setRecommend] = useState<null | mainProps>(null);
   const context = useAuthContext();
   useEffect(() => {
     getMyPage().then((res) =>
@@ -18,11 +26,15 @@ export const MainPage = () => {
         name: res.name,
         profile: res.profile,
         role: res.role,
-        canCaffeineIntakeAmount: 0,
-        todayCaffeineIntakeAmount: 0,
+        canCaffeineIntakeAmount: res.canCaffeineIntakeAmount,
+        todayCaffeineIntakeAmount: res.todayCaffeineIntakeAmount,
         email: res.email,
       })
     );
+
+    getRandomCoffee().then(({ brand, menu, caffeine }) => {
+      setRecommend({ brand, menu, caffeine });
+    });
   }, []);
   return (
     <div>
@@ -50,7 +62,10 @@ export const MainPage = () => {
         <ProgressBar
           labelSize="12px"
           animateOnRender
-          completed={60}
+          completed={Math.floor(
+            context?.auth?.todayCaffeineIntakeAmount ??
+              0 / (context?.auth?.todayCaffeineIntakeAmount ?? 0)
+          )}
           width="100%"
           bgColor="#6F4E37"
           maxCompleted={100}
@@ -64,7 +79,7 @@ export const MainPage = () => {
           }}
         >
           <span>0mg</span>
-          <span>1000mg</span>
+          <span>{context?.auth.canCaffeineIntakeAmount}mg</span>
         </div>
       </div>
       <div
@@ -88,8 +103,8 @@ export const MainPage = () => {
           </div>
           <Card
             icon={<Logo width={35} height={50} />}
-            title="스타벅스"
-            subTitle={<p className={subTitle}>아이스 아메리카노</p>}
+            title={reommend?.brand}
+            subTitle={<p className={subTitle}>{reommend?.menu}</p>}
           />
         </div>
       </div>

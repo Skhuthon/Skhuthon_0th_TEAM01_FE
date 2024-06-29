@@ -66,7 +66,7 @@ export const MyPage = () => {
         </span>
         <Border />
         <span>
-          {authContext?.auth.todayCaffeineIntakeAmount}의 카페인을 먹어보아요🙊
+          {authContext?.auth.canCaffeineIntakeAmount}의 카페인을 먹어보아요🙊
           <Pen className={pen} />
         </span>
       </div>
@@ -92,7 +92,8 @@ export const MyPage = () => {
             }}
           >
             <div>
-              {bookmark},{카페인}mg
+              {bookmark}
+              {카페인}mg
             </div>
             <div>{menu}</div>
           </div>

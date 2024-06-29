@@ -45,3 +45,13 @@ export const mutateCaffeine = async ({ caffeine }: { caffeine: number }) => {
 
   return response.data;
 };
+
+export const getRandomCoffee = async () => {
+  const response = await axiosClient.get<{
+    brand: string;
+    menu: string;
+    caffeine: number;
+  }>('/product/recommend');
+
+  return response.data;
+};
