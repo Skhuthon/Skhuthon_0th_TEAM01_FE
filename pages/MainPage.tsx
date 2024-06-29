@@ -17,9 +17,11 @@ interface mainProps {
   menu: string;
   caffeine: number;
 }
+
 export const MainPage = () => {
-  const [reommend, setRecommend] = useState<null | mainProps>(null);
+  const [recommend, setRecommend] = useState<null | mainProps>(null);
   const context = useAuthContext();
+
   useEffect(() => {
     getMyPage().then((res) =>
       context?.setAuth({
@@ -36,6 +38,21 @@ export const MainPage = () => {
       setRecommend({ brand, menu, caffeine });
     });
   }, []);
+
+  const calculatePercentage = () => {
+    if (
+      context?.auth?.todayCaffeineIntakeAmount &&
+      context?.auth?.canCaffeineIntakeAmount
+    ) {
+      return (
+        (context.auth.todayCaffeineIntakeAmount /
+          context.auth.canCaffeineIntakeAmount) *
+        100
+      );
+    }
+    return 0;
+  };
+
   return (
     <div>
       <Banner className="banner" />
@@ -62,10 +79,7 @@ export const MainPage = () => {
         <ProgressBar
           labelSize="12px"
           animateOnRender
-          completed={Math.floor(
-            context?.auth?.todayCaffeineIntakeAmount ??
-              0 / (context?.auth?.todayCaffeineIntakeAmount ?? 0)
-          )}
+          completed={calculatePercentage()}
           width="100%"
           bgColor="#6F4E37"
           maxCompleted={100}
@@ -79,7 +93,7 @@ export const MainPage = () => {
           }}
         >
           <span>0mg</span>
-          <span>{context?.auth.canCaffeineIntakeAmount}mg</span>
+          <span>{context?.auth?.canCaffeineIntakeAmount}mg</span>
         </div>
       </div>
       <div
@@ -103,8 +117,8 @@ export const MainPage = () => {
           </div>
           <Card
             icon={<Logo width={35} height={50} />}
-            title={reommend?.brand}
-            subTitle={<p className={subTitle}>{reommend?.menu}</p>}
+            title={recommend?.brand}
+            subTitle={<p className={subTitle}>{recommend?.menu}</p>}
           />
         </div>
       </div>
