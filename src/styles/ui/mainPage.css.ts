@@ -28,11 +28,16 @@ export const LoginContainer = style({
 export const main = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: vars.spacing.md,
+  gap: vars.spacing.sm,
 });
 
 export const subTitle = style({
   color: vars.color.gray_200,
   fontSize: vars.size.font_sm,
   fontWeight: vars.weight.extraLight,
+});
+
+export const mainLayout = style({
+  width: '300px',
+  margin: `${vars.spacing.md} auto`,
 });

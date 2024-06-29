@@ -3,6 +3,8 @@ import Logo from '../src/assets/logo.svg?react';
 import { bookmark } from '../src/styles/ui/myPage.css';
 import { main, subTitle } from '../src/styles/ui/mainPage.css';
 import Bookmark from '../src/assets/bookmark.svg?react';
+import { mainLayout } from '../src/styles/ui/mainPage.css';
+import ProgressBar from '@ramonak/react-progress-bar';
 export const MainPage = () => {
   return (
     <div>
@@ -10,7 +12,6 @@ export const MainPage = () => {
         className={bookmark}
         style={{
           width: '90%',
-          margin: '25px auto',
         }}
       >
         <div className={main}>
@@ -18,6 +19,48 @@ export const MainPage = () => {
             style={{
               display: 'flex',
               alignItems: 'center',
+              fontSize: '24px',
+            }}
+          >
+            일일권장카페인섭취량
+            <Bookmark />
+          </div>
+        </div>
+      </div>
+      <div className={mainLayout}>
+        <ProgressBar
+          animateOnRender
+          completed={60}
+          width="100%"
+          bgColor="#6F4E37"
+          maxCompleted={100}
+        />
+        <div
+          style={{
+            display: 'flex',
+            color: '#999999',
+            fontSize: '10px',
+            justifyContent: 'space-between',
+          }}
+        >
+          <span>0mg</span>
+          <span>1000mg</span>
+        </div>
+      </div>
+      <div
+        className={bookmark}
+        style={{
+          width: '90%',
+          margin: '20px auto',
+        }}
+      >
+        <div className={main}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              fontSize: '20px',
+              marginTop: '25px auto',
             }}
           >
             오늘의 메뉴

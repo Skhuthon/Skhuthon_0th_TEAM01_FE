@@ -45,10 +45,7 @@ export const AuthPage = () => {
         <NaverLogin
           width={320}
           height={40}
-          onClick={() => {
-            window.location.href =
-              'https://caffeinebalance.shop/oauth2/authorization/naver';
-          }}
+          onClick={() => {}}
           style={{
             borderRadius: '15px',
             cursor: 'pointer',
